@@ -14,6 +14,8 @@ class Track extends React.Component<Props> {
   render() {
     const track = tracks[this.props.trackId]
     const currentMilestoneId = this.props.milestoneByTrack[this.props.trackId]
+    console.log(tracks);
+    console.log(this.props);
     const currentMilestone = track.milestones[currentMilestoneId - 1]
     return (
       <div className="track">

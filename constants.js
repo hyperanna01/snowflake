@@ -1,40 +1,40 @@
 // @flow
 import * as d3 from 'd3'
 
-export type TrackId = 'MOBILE' | 'WEB_CLIENT' | 'FOUNDATIONS' | 'SERVERS' |
-  'PROJECT_MANAGEMENT' | 'COMMUNICATION' | 'CRAFT' | 'INITIATIVE' |
-  'CAREER_DEVELOPMENT' | 'ORG_DESIGN' | 'WELLBEING' | 'ACCOMPLISHMENT' |
-  'MENTORSHIP' | 'EVANGELISM' | 'RECRUITING' | 'COMMUNITY'
+export type TrackId = 'WEB' | 'SERVERS' | 'DATA' | 'FOUNDATIONS' |
+  'COLLABORATION' | 'DELIVERY' | 'TECH' | 'PRODUCT' |
+  'KIND_HUMBLE' | 'HONEST_FEEDBACK' | 'WORK_ETHIC' | 'TRUSTWORTHY' |
+  'LEARNING_TEACHING' | 'SECURITY' | 'RECRUITING' | 'COMMUNICATION'
 export type Milestone = 0 | 1 | 2 | 3 | 4 | 5
 
 export type MilestoneMap = {
-  'MOBILE': Milestone,
-  'WEB_CLIENT': Milestone,
-  'FOUNDATIONS': Milestone,
+  'WEB': Milestone,
   'SERVERS': Milestone,
-  'PROJECT_MANAGEMENT': Milestone,
-  'COMMUNICATION': Milestone,
-  'CRAFT': Milestone,
-  'INITIATIVE': Milestone,
-  'CAREER_DEVELOPMENT': Milestone,
-  'ORG_DESIGN': Milestone,
-  'WELLBEING': Milestone,
-  'ACCOMPLISHMENT': Milestone,
-  'MENTORSHIP': Milestone,
-  'EVANGELISM': Milestone,
+  'DATA': Milestone,
+  'FOUNDATIONS': Milestone,
+  'COLLABORATION': Milestone,
+  'DELIVERY': Milestone,
+  'TECH': Milestone,
+  'PRODUCT': Milestone,
+  'KIND_HUMBLE': Milestone,
+  'HONEST_FEEDBACK': Milestone,
+  'WORK_ETHIC': Milestone,
+  'TRUSTWORTHY': Milestone,
+  'LEARNING_TEACHING': Milestone,
+  'SECURITY': Milestone,
   'RECRUITING': Milestone,
-  'COMMUNITY': Milestone
+  'COMMUNICATION': Milestone
 }
 export const milestones = [0, 1, 2, 3, 4, 5]
 
 export const milestoneToPoints = (milestone: Milestone): number => {
   switch (milestone) {
     case 0: return 0
-    case 1: return 1
-    case 2: return 3
-    case 3: return 6
-    case 4: return 12
-    case 5: return 20
+    case 1: return 5
+    case 2: return 9
+    case 3: return 12
+    case 4: return 16
+    case 5: return 21
     default: return 0
   }
 }
@@ -54,10 +54,10 @@ export const pointsToLevels = {
   '74': '4.3',
   '90': '5.1',
   '110': '5.2',
-  '135': '5.3',
+  '250': '5.3',
 }
 
-export const maxLevel = 135
+export const maxLevel = 250
 
 export type Track = {
   displayName: string,
@@ -71,98 +71,32 @@ export type Track = {
 }
 
 type Tracks = {|
-  'MOBILE': Track,
-  'WEB_CLIENT': Track,
-  'FOUNDATIONS': Track,
+  'WEB': Track,
   'SERVERS': Track,
-  'PROJECT_MANAGEMENT': Track,
-  'COMMUNICATION': Track,
-  'CRAFT': Track,
-  'INITIATIVE': Track,
-  'CAREER_DEVELOPMENT': Track,
-  'ORG_DESIGN': Track,
-  'WELLBEING': Track,
-  'ACCOMPLISHMENT': Track,
-  'MENTORSHIP': Track,
-  'EVANGELISM': Track,
+  'DATA': Track,
+  'FOUNDATIONS': Track,
+  'COLLABORATION': Track,
+  'DELIVERY': Track,
+  'TECH': Track,
+  'PRODUCT': Track,
+  'KIND_HUMBLE': Track,
+  'HONEST_FEEDBACK': Track,
+  'WORK_ETHIC': Track,
+  'TRUSTWORTHY': Track,
+  'LEARNING_TEACHING': Track,
+  'SECURITY': Track,
   'RECRUITING': Track,
-  'COMMUNITY': Track
+  'COMMUNICATION': Track
 |}
 
 export const tracks: Tracks = {
-  "MOBILE": {
-    "displayName": "Mobile",
-    "category": "A",
-    "description": "Develops expertise in native mobile platform engineering, such as iOS or Android",
-    "milestones": [{
-      "summary": "Works effectively within established iOS or Android architectures, following current best practices",
-      "signals": [
-        "Delivers features requiring simple local modifications",
-        "Adds simple actions that call server endpoints",
-        "Reuses existing components appropriately",
-      ],
-      "examples": [
-        "Added existing button to a different iOS surface",
-        "Add follow button for publications on Android",
-        "Fetched and displayed a new stream, using existing stream item styles",
-      ],
-    }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
-      "signals": [
-        "Defines new useful and appropriate proto-generated objects",
-        "Creates simple new activities on Android",
-        "Migrates code from old patterns to new patterns",
-      ],
-      "examples": [
-        "Upgraded SDWebImage to a new major version",
-        "Added support for rendering a new type of stream item",
-        "Prototyped a simple new feature quickly",
-      ],
-    }, {
-      "summary": "Designs major new features and demonstrates a nuanced understanding of mobile platform constraints",
-      "signals": [
-        "Implements complex features with a large product surface area",
-        "Works effectively with  Android reactive programming framework",
-        "Adds support for new iOS features after a major iOS version upgrade",
-      ],
-      "examples": [
-        "Designed iOS caching strategy for offline reading",
-        "Built series reader on Android",
-        "Informed the team about recent best practice changes and deprecations",
-      ],
-    }, {
-      "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
-      "signals": [
-        "Pioneers architecture migration strategies that reduce programmer burden",
-        "Fixes subtle memory management issues",
-        "Implements interactive dismissals that bring delight",
-      ],
-      "examples": [
-        "Upgraded CocoaPods to a new major version",
-        "Designed architecture for fetching and rendering stream items",
-        "Migrated Android persistance layer to reactive programming",
-      ],
-    }, {
-      "summary": "Is an industry-leading expert in mobile engineering or sets strategic mobile direction for an eng team",
-      "signals": [
-        "Defines long-term goals and ensures active projects are in service of them",
-        "Designs and builds innovative, industry-leading UI interactions",
-        "Invents new techniques to responsibly stretch limits of the Android platform",
-      ],
-      "examples": [
-        "Defined and drove complete migration plan to Swift or Kotlin",
-        "Implemented Android recycler views before platform support existed",
-        "Pioneered application-level abstractions for multi-app environment",
-      ],
-    }],
-  },
 
-  "WEB_CLIENT": {
-    "displayName": "Web client",
+  "WEB": {
+    "displayName": "Web",
     "category": "A",
-    "description": "Develops expertise in web client technologies, such as HTML, CSS, and JavaScript",
+    "description": "Develops expertise in web technologies, such as HTML, CSS, and JavaScript on the front end and Play, Pyramid or others on the backend",
     "milestones": [{
-      "summary": "Works effectively within established web client architectures, following current best practices",
+      "summary": "Works effectively within established web architectures, following current best practices",
       "signals": [
         "Makes minor modifications to existing screens",
         "Fixes simple design quality issues",
@@ -190,11 +124,11 @@ export const tracks: Tracks = {
       "signals": [
         "Provides useful design feedback and suggests feasible alternatives",
         "Performs systemic tasks to significantly minimise bundle size",
-        "Acts a caretaker for all of web client code",
+        "Acts a caretaker for all of web code",
       ],
       "examples": [
-        "Designed font loading strategy for Medium",
-        "Researched utility of service workers for Medium",
+        "Designed font loading strategy for Hyper Anna",
+        "Researched utility of service workers for Hyper Anna",
         "Designed and implemented ResponseScreen",
       ],
     }, {
@@ -205,21 +139,155 @@ export const tracks: Tracks = {
         "Makes architectural decisions that eliminate entire classes of bugs",
       ],
       "examples": [
-        "Designed Medium's post morpher and delta system",
-        "Implemented Medium's scrolling text over image blur",
+        "Designed Hyper Anna's post morpher and delta system",
+        "Implemented Hyper Anna's scrolling text over image blur",
         "Designed and pioneered proto-based model storage",
       ],
     }, {
-      "summary": "Is an industry-leading expert in web client or sets strategic web client direction for an eng team",
+      "summary": "Is an industry-leading expert in web development or sets strategic web development direction for an eng team",
       "signals": [
         "Invents new techniques to innovate and overcome browser constraints",
         "Identifies and solved systemic problems with current architecture",
-        "Defines a long-term vision for web client and ensures projects are in service of it",
+        "Defines a long-term vision for web development and ensures projects are in service of it",
       ],
       "examples": [
         "Invented CSS in JS",
         "Defined and drove migration strategy to Lite",
         "Implemented unidirectional data flow to completion",
+      ],
+    }],
+  },
+
+  "SERVERS": {
+    "displayName": "Servers",
+    "category": "A",
+    "description": "Develops expertise in server side engineering, using technologies such as Scala, Javascript, or R",
+    "milestones": [{
+      "summary": "Works effectively within established server side frameworks, following current best practices",
+      "signals": [
+        "Adds NodeJS endpoints using layers architecture",
+        "Adds golang endpoints using Gotham architecture",
+        "Makes minor server changes to support client needs",
+      ],
+      "examples": [
+        "Added IFTTT trigger for new bookmark to medium2",
+        "Added delete audio route to Buggle",
+        "Queried a Dynamo LSI appropriately",
+      ],
+    }, {
+      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "signals": [
+        "Assesses correctness and utility of existing code and avoids blind copy-pasting",
+        "Generalizes code when appropriate",
+        "Determines data needs from product requirements",
+      ],
+      "examples": [
+        "Identified need for new index on Dynamo",
+        "Acted as caretaker for routes protos",
+        "Updated Facebook API version and codebase dependencies",
+      ],
+    }, {
+      "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
+      "signals": [
+        "Acts as primary maintainer for existing critical systems",
+        "Integrates third party services effectively",
+        "Writes playbooks for new service maintenance",
+      ],
+      "examples": [
+        "Implemented Google Auth login to Hyper Anna",
+        "Implemented payments integration with Stripe",
+        "Built Textshots server",
+      ],
+    }, {
+      "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
+      "signals": [
+        "Delivers complex systems that achieve their goals",
+        "Avoids subtle architectural mistakes when considering new systems",
+        "Makes appropriate buy vs build choices",
+      ],
+      "examples": [
+        "Designed Hyper Anna's ranked feed architecture",
+        "Designed custom domains architecture",
+        "Created Gotham framework for creating Go services",
+      ],
+    }, {
+      "summary": "Is an industry-leading expert in server side engineering or sets strategic server side direction for an eng team",
+      "signals": [
+        "Designs transformational projects of significant complexity and scope",
+        "Makes decisions that have positive, long term, wide ranging consequences",
+        "Identifies and solves systemic problems with current architecture",
+      ],
+      "examples": [
+        "Researched, vetted, and selected Go as Hyper Anna's statically typed language",
+        "Defined microservices architecture and medium2 migration plan",
+        "Defined and implemented proprietary IP core to the company's success",
+      ],
+    }],
+  },
+
+  "DATA": {
+    "displayName": "Data Engineering",
+    "category": "A",
+    "description": "Develops expertise in data engineering, such as MySQL, Spark, and ETL",
+    "milestones": [{
+      "summary": "Works effectively within established data architectures, following current best practices",
+      "signals": [
+        "Delivers features requiring simple local modifications",
+        "Adds simple steps into existing ETL processes",
+        "Reuses existing components appropriately",
+      ],
+      "examples": [
+        "Added existing button to a different iOS surface",
+        "Add follow button for publications on Android",
+        "Fetched and displayed a new stream, using existing stream item styles",
+      ],
+    }, {
+      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "signals": [
+        "Defines new useful and appropriate proto-generated objects",
+        "Creates simple new activities on Android",
+        "Migrates code from old patterns to new patterns",
+      ],
+      "examples": [
+        "Upgraded SDWebImage to a new major version",
+        "Added support for rendering a new type of stream item",
+        "Prototyped a simple new feature quickly",
+      ],
+    }, {
+      "summary": "Designs major new features and demonstrates a nuanced understanding of data engineering platform constraints",
+      "signals": [
+        "Implements complex features with a large product surface area",
+        "Works effectively with  Android reactive programming framework",
+        "Adds support for new iOS features after a major iOS version upgrade",
+      ],
+      "examples": [
+        "Designed iOS caching strategy for offline reading",
+        "Built series reader on Android",
+        "Informed the team about recent best practice changes and deprecations",
+      ],
+    }, {
+      "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
+      "signals": [
+        "Pioneers architecture migration strategies that reduce programmer burden",
+        "Fixes subtle memory management issues",
+        "Implements interactive dismissals that bring delight",
+      ],
+      "examples": [
+        "Upgraded CocoaPods to a new major version",
+        "Designed architecture for fetching and rendering stream items",
+        "Migrated Android persistance layer to reactive programming",
+      ],
+    }, {
+      "summary": "Is an industry-leading expert in data engineering or sets strategic data direction for an eng team",
+      "signals": [
+        "Defines long-term goals and ensures active projects are in service of them",
+        "Designs and builds innovative, industry-leading UI interactions",
+        "Invents new techniques to responsibly stretch limits of the Android platform",
+      ],
+      "examples": [
+        "Defined and drove complete migration plan to Swift or Kotlin",
+        "Implemented Android recycler views before platform support existed",
+        "Pioneered application-level abstractions for multi-app environment",
       ],
     }],
   },
@@ -261,7 +329,7 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Designed Ansible configuration management",
-        "Built Medium's realtime stats pipeline",
+        "Built Hyper Anna's realtime stats pipeline",
         "Designed flexible framework for writing machine learning jobs",
       ],
     }, {
@@ -285,81 +353,15 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Invented a novel ML technique that advanced the state of the art",
-        "Defined and developed Medium's continuous delivery strategy",
+        "Defined and developed Hyper Anna's continuous delivery strategy",
         "Developed and implemented HA strategy",
       ],
     }],
   },
 
-  "SERVERS": {
-    "displayName": "Servers",
-    "category": "A",
-    "description": "Develops expertise in server side engineering, using technologies such as Go, NodeJS, or Scala",
-    "milestones": [{
-      "summary": "Works effectively within established server side frameworks, following current best practices",
-      "signals": [
-        "Adds NodeJS endpoints using layers architecture",
-        "Adds golang endpoints using Gotham architecture",
-        "Makes minor server changes to support client needs",
-      ],
-      "examples": [
-        "Added IFTTT trigger for new bookmark to medium2",
-        "Added delete audio route to Buggle",
-        "Queried a Dynamo LSI appropriately",
-      ],
-    }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
-      "signals": [
-        "Assesses correctness and utility of existing code and avoids blind copy-pasting",
-        "Generalizes code when appropriate",
-        "Determines data needs from product requirements",
-      ],
-      "examples": [
-        "Identified need for new index on Dynamo",
-        "Acted as caretaker for routes protos",
-        "Updated Facebook API version and codebase dependencies",
-      ],
-    }, {
-      "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
-      "signals": [
-        "Acts as primary maintainer for existing critical systems",
-        "Integrates third party services effectively",
-        "Writes playbooks for new service maintenance",
-      ],
-      "examples": [
-        "Implemented Google Auth login to Medium",
-        "Implemented payments integration with Stripe",
-        "Built Textshots server",
-      ],
-    }, {
-      "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
-      "signals": [
-        "Delivers complex systems that achieve their goals",
-        "Avoids subtle architectural mistakes when considering new systems",
-        "Makes appropriate buy vs build choices",
-      ],
-      "examples": [
-        "Designed Medium's ranked feed architecture",
-        "Designed custom domains architecture",
-        "Created Gotham framework for creating Go services",
-      ],
-    }, {
-      "summary": "Is an industry-leading expert in server side engineering or sets strategic server side direction for an eng team",
-      "signals": [
-        "Designs transformational projects of significant complexity and scope",
-        "Makes decisions that have positive, long term, wide ranging consequences",
-        "Identifies and solves systemic problems with current architecture",
-      ],
-      "examples": [
-        "Researched, vetted, and selected Go as Medium's statically typed language",
-        "Defined microservices architecture and medium2 migration plan",
-        "Defined and implemented proprietary IP core to the company's success",
-      ],
-    }],
-  },
 
-  "PROJECT_MANAGEMENT": {
-    "displayName": "Project management",
+  "DELIVERY": {
+    "displayName": "Delivery ethic",
     "category": "B",
     "description": "Delivers well-scoped programs of work that meet their goals, on time, to budget, harmoniously",
     "milestones": [{
@@ -425,75 +427,9 @@ export const tracks: Tracks = {
     }],
   },
 
-  "COMMUNICATION": {
-    "displayName": "Communication",
-    "category": "B",
-    "description": "Shares the right amount of information with the right people, at the right time, and listens effectively",
-    "milestones": [{
-      "summary": "Communicates effectively to close stakeholders when called upon, and incorporates constructive feedback",
-      "signals": [
-        "Communicates project status clearly and effectively",
-        "Collaborates with others with empathy",
-        "Asks for help at the appropriate juncture",
-      ],
-      "examples": [
-        "Updated The Watch before running a backfill",
-        "Updated project status changes in Asana promptly",
-        "Gave thoughtful check-in and check-out comments",
-      ],
-    }, {
-      "summary": "Communicates with the wider team appropriately, focusing on timeliness and good quality conversations",
-      "signals": [
-        "Practises active listening and suspension of attention",
-        "Ensures stakeholders are aware of current blockers",
-        "Chooses the appropriate tools for accurate and timely communication",
-      ],
-      "examples": [
-        "Received and integrated critical feedback positively",
-        "Created cross-team Slack channel for payments work",
-        "Spoke to domain experts before writing spec",
-      ],
-    }, {
-      "summary": "Proactively shares information, actively solicits feedback, and facilitates communication for multiple stakeholders",
-      "signals": [
-        "Resolves communication difficulties between others",
-        "Anticipates and shares schedule deviations in plenty of time",
-        "Manages project stakeholder expectations effectively",
-      ],
-      "examples": [
-        "Directed team response effectively during outages",
-        "Gave a substantial Eng All Hands presentation on React",
-        "Gave notice of upcoming related work in Eng Briefing",
-      ],
-    }, {
-      "summary": "Communicates complex ideas skillfully and with nuance, and establishes alignment within the wider organization",
-      "signals": [
-        "Communicates project risk and tradeoffs skillfully and with nuance",
-        "Contextualizes and clarifies ambiguous direction and strategy for others",
-        "Negotiates resourcing compromises with other teams",
-      ],
-      "examples": [
-        "Lead off-site workshop on interviewing",
-        "Wrote Medium's growth framework and rationale",
-        "Aligned the entire organization around claps",
-      ],
-    }, {
-      "summary": "Influences outcomes at the highest level, moves beyond mere broadcasting, and sets best practices for others",
-      "signals": [
-        "Defines processes for clear communication for the entire team",
-        "Shares the right amount of information with the right people, at the right time",
-        "Develops and delivers plans to execs, the board, and outside investors",
-      ],
-      "examples": [
-        "Organized half year check-in company offsite",
-        "Created the communication plan for a large organizational change",
-        "Presented to the board about key company metrics and projects",
-      ],
-    }],
-  },
 
-  "CRAFT": {
-    "displayName": "Craft",
+  "TECH": {
+    "displayName": "Tech ethic",
     "category": "B",
     "description": "Embodies and promotes practices to ensure excellent quality products and services",
     "milestones": [{
@@ -541,7 +477,7 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Added code coverage reporting to iOS CI pipeline",
-        "Iterated repeatedly to develop Medium's underlines solution",
+        "Iterated repeatedly to develop Hyper Anna's underlines solution",
         "Defined and oversaw plan for closing Heartbleed vulnerability",
       ],
     }, {
@@ -559,10 +495,10 @@ export const tracks: Tracks = {
     }],
   },
 
-  "INITIATIVE": {
-    "displayName": "Initiative",
+  "PRODUCT": {
+    "displayName": "Product Ethic",
     "category": "B",
-    "description": "Challenges the status quo and effects positive organizational change outside of mandated work",
+    "description": "Understands the business domain and objectives and how these translate into software product",
     "milestones": [{
       "summary": "Identifies opportunities for organizational change or product improvements",
       "signals": [
@@ -620,16 +556,83 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Migrated the organization from Holacracy",
-        "Built Medium Android prototype and convinced execs to fund it",
-        "Convinced leadership and engineering org to move to Medium Lite architecture",
+        "Built Hyper Anna Android prototype and convinced execs to fund it",
+        "Convinced leadership and engineering org to move to Hyper Anna Lite architecture",
       ],
     }],
   },
 
-  "CAREER_DEVELOPMENT": {
-    "displayName": "Career development",
+  "COLLABORATION": {
+    "displayName": "Collaboration",
     "category": "C",
-    "description": "Provides strategic support to engineers to help them build the career they want",
+    "description": "Is helpful and collaborative, regardless of organisational boundaries, and contributes to company culture",
+    "milestones": [{
+      "summary": "Is available and present on current teams, and works to contribute positively to company culture",
+      "signals": [
+        "Participates in team activities and offsites",
+        "Treats colleagues and clients with respect",
+        "Joins groups or committees outside regular duties",
+      ],
+      "examples": [
+        "Joined and actively participated in the web client guild",
+        "Brought a small gift back from vacation for the team",
+        "Wrote entertaining and informative Prod Ops writeups on Hatch",
+      ],
+    }, {
+      "summary": "Steps up, builds connectedness, and takes concrete actions to promote an inclusive culture",
+      "signals": [
+        "Makes space for others to participate",
+        "Collaborates with other engineers outside direct responsibilities",
+        "Finds ways to ramp up and engage new hires quickly",
+      ],
+      "examples": [
+        "Created onboarding bingo",
+        "Brought shy and introverted people into a dominant conversation",
+        "Volunteered as secretary for a team",
+      ],
+    }, {
+      "summary": "Contributes to improving team relatedness, and helps build a culture of lending support",
+      "signals": [
+        "Takes on additional Watch shifts at short notice",
+        "Pitches in to help other teams hit deadlines, without missing own deadlines",
+        "Uses position to raise difficult issues on someone's behalf",
+      ],
+      "examples": [
+        "Lead Watch cycles with little support while still contributing to projects",
+        "Started and drove the LGBTQIA ERG",
+        "Stayed positive and improved team morale during period after layoffs",
+      ],
+    }, {
+      "summary": "Exemplifies selflessness for the team without compromising responsibilities, and lifts everyone up",
+      "signals": [
+        "Goes above and beyond on the Watch, serving the team without complaint",
+        "Implements concrete programs to signficantly improve team inclusivity",
+        "Takes on large amounts of tedious grunt work for the team without being asked",
+      ],
+      "examples": [
+        "Devoted large amount of time to helping outside direct responsibilities",
+        "Refactored hundreds of legacy Shepherd nodes",
+        "Acted as sole maintainer of Boxen for years",
+      ],
+    }, {
+      "summary": "Lives the company values, guards positive culture, and defines policies that support relatedness between teams",
+      "signals": [
+        "Brings separate teams together to build relatedness",
+        "Holds individuals, teams, and leadership accountable to Hyper Anna's values",
+        "Sets the tone, policy, and goals around maintaining an inclusive company",
+      ],
+      "examples": [
+        "Organized wine and olive tasting offsite to Napa for the whole engineering org",
+        "Devised, delivered and acted on findings from an engineer happiness survey",
+        "Challenged and corrected exclusionary behaviour or policies",
+      ],
+    }],
+  },
+
+  "KIND_HUMBLE": {
+    "displayName": "Kind and Humble",
+    "category": "C",
+    "description": "Empathise with and understand colleagues, fostering a psychologically safe working environment",
     "milestones": [{
       "summary": "Gives insight into opportunities and helps identify individuals' strengths and weaknesses",
       "signals": [
@@ -693,10 +696,10 @@ export const tracks: Tracks = {
     }],
   },
 
-  "ORG_DESIGN": {
-    "displayName": "Org design",
+  "HONEST_FEEDBACK": {
+    "displayName": "Honest and value continual feedback",
     "category": "C",
-    "description": "Defines processes and structures that enables the strong growth and execution of a diverse eng organization",
+    "description": "Gives and receives feedback in a constructive manner and takes action based on this",
     "milestones": [{
       "summary": "Respects and participates in processes, giving meaningful feedback to help the organization improve",
       "signals": [
@@ -760,10 +763,10 @@ export const tracks: Tracks = {
     }],
   },
 
-  "WELLBEING": {
-    "displayName": "Wellbeing",
+  "WORK_ETHIC": {
+    "displayName": "Work Ethic",
     "category": "C",
-    "description": "Supports the emotional well-being of group members in difficult times, and celebrates their successes",
+    "description": "Displays passion and pride in their work, hardworking and going the extra mile",
     "milestones": [{
       "summary": "Uses tools and processes to help ensure colleagues are healthy and happy",
       "signals": [
@@ -827,10 +830,10 @@ export const tracks: Tracks = {
     }],
   },
 
-  "ACCOMPLISHMENT": {
-    "displayName": "Accomplishment",
+  "TRUSTWORTHY": {
+    "displayName": "Trustworthy and respect confidentiality",
     "category": "C",
-    "description": "Inspires day to day excellence, maximises potential and effectively resolves performance issues with compassion",
+    "description": "Inspires trust by keeping commitments, acting with integrity, and always valuing the confideniality of our customers and company",
     "milestones": [{
       "summary": "Helps individuals identify blockers and helps them identify next steps for resolution",
       "signals": [
@@ -894,8 +897,8 @@ export const tracks: Tracks = {
     }],
   },
 
-  "MENTORSHIP": {
-    "displayName": "Mentorship",
+  "LEARNING_TEACHING": {
+    "displayName": "Learning and Teaching",
     "category": "D",
     "description": "Provides support to colleagues, spreads knowledge, and develops the team outside formal reporting structures",
     "milestones": [{
@@ -923,7 +926,7 @@ export const tracks: Tracks = {
         "Lead from behind to support someone new to a leadership role",
       ],
     }, {
-      "summary": "Teaches small groups of engineers and contributes to Medium's shared knowledge base",
+      "summary": "Teaches small groups of engineers and contributes to Hyper Anna's shared knowledge base",
       "signals": [
         "Avoids siloing information when it can be usefully shared with others",
         "Works to increase the bus factor of systems",
@@ -932,7 +935,7 @@ export const tracks: Tracks = {
       "examples": [
         "Gave a brown bag presentation on payments",
         "Wrote Hatch post on avoiding RDS backfill issues",
-        "Wrote Medium-U content module",
+        "Wrote Hyper Anna-U content module",
       ],
     }, {
       "summary": "Encourages people to mentor each other, and creates ways for them to do so",
@@ -942,7 +945,7 @@ export const tracks: Tracks = {
         "Creates brown bag series and lines up speakers",
       ],
       "examples": [
-        "Created and lead Medium's Women in Eng group",
+        "Created and lead Hyper Anna's Women in Eng group",
         "Organized an Eng All Hands with an outside speaker",
         "Designed and taught web client guild curriculum",
       ],
@@ -961,69 +964,69 @@ export const tracks: Tracks = {
     }],
   },
 
-  "EVANGELISM": {
-    "displayName": "Evangelism",
+  "SECURITY": {
+    "displayName": "Security",
     "category": "D",
-    "description": "Promotes Medium to the outside world and establishes it as an attractive and thoughtful place to work",
+    "description": "Is aware, knowledgeable and proactive in ensuring security in people, process and product",
     "milestones": [{
-      "summary": "Represents Medium well externally, and influences individuals positively",
+      "summary": "Represents Hyper Anna well externally, and influences individuals positively",
       "signals": [
         "Shares personal and organizational successes with their network",
-        "Attends Medium-hosted events and talks with guests",
+        "Attends Hyper Anna-hosted events and talks with guests",
         "Communicates genuine and honest excitement about their work externally",
       ],
       "examples": [
-        "Shared a Medium product launch post on Facebook",
+        "Shared a Hyper Anna product launch post on Facebook",
         "Acted as a guide for a non-friend visitor to the office",
         "Supported PR efforts by giving a quote or having a photo taken",
       ],
     }, {
       "summary": "Participates more centrally in small events, and takes simple actions that positively influence groups of people",
       "signals": [
-        "Takes meaningful action to introduce people to Medium",
-        "Joined public Slack group and represented Medium appropriately, and well",
-        "Organizes positive small- or medium-sized events that bring people to Medium",
+        "Takes meaningful action to introduce people to Hyper Anna",
+        "Joined public Slack group and represented Hyper Anna appropriately, and well",
+        "Organizes positive small- or medium-sized events that bring people to Hyper Anna",
       ],
       "examples": [
         "Volunteered as a helper for CODE2040 writing workshop",
         "Organized a short tour of the office by college students",
-        "Talked at a Women Who Code event hosted at Medium",
+        "Talked at a Women Who Code event hosted at Hyper Anna",
       ],
     }, {
-      "summary": "Works hard to positively influence large groups of people on their views of Medium",
+      "summary": "Works hard to positively influence large groups of people on their views of Hyper Anna",
       "signals": [
         "Mentors or participates in a high visibility way in an external organization",
         "Builds fruitful partnerships with external organizations",
-        "Writes blog posts about Medium that receive moderate traffic",
+        "Writes blog posts about Hyper Anna that receive moderate traffic",
       ],
       "examples": [
-        "Represented Medium on a panel at a conference of industry experts",
+        "Represented Hyper Anna on a panel at a conference of industry experts",
         "Established close ties with Creative Commons",
         "Built a durable, long-standing relationship with Code2040",
       ],
     }, {
-      "summary": "Establishes Medium as an great, innovative company and workplace to the whole industry",
+      "summary": "Establishes Hyper Anna as an great, innovative company and workplace to the whole industry",
       "signals": [
         "Establishes themself as an industry thought leader who attracts talent",
-        "Publishes material about Medium's organizational or technical innovations",
-        "Leverages significant following to evangelise Medium",
+        "Publishes material about Hyper Anna's organizational or technical innovations",
+        "Leverages significant following to evangelise Hyper Anna",
       ],
       "examples": [
-        "Published a paper on Medium technology in a peer-reviewed journal",
+        "Published a paper on Hyper Anna technology in a peer-reviewed journal",
         "Authored joint-press release with EFF on DNT",
-        "Published “Why Content Editable Is Terrible” on the Medium engineering blog",
+        "Published “Why Content Editable Is Terrible” on the Hyper Anna engineering blog",
       ],
     }, {
-      "summary": "Introduces Medium in a positive light to a wider audience outside the industry",
+      "summary": "Introduces Hyper Anna in a positive light to a wider audience outside the industry",
       "signals": [
         "Delivers key messages to broad, mainstream audiences",
-        "Influences people with large audiences to talk about Medium positively",
-        "Drives recognition and adoption of Medium in significant numbers",
+        "Influences people with large audiences to talk about Hyper Anna positively",
+        "Drives recognition and adoption of Hyper Anna in significant numbers",
       ],
       "examples": [
         "Published or interviewed in a mainstream newspaper or website outside tech",
         "Keynoted a conference with international attention",
-        "Represented Medium in national televised media",
+        "Represented Hyper Anna in national televised media",
       ],
     }],
   },
@@ -1031,9 +1034,9 @@ export const tracks: Tracks = {
   "RECRUITING": {
     "displayName": "Recruiting",
     "category": "D",
-    "description": "Strengthens Medium's team by bringing in excellent staff members",
+    "description": "Strengthens Hyper Anna's team by bringing in excellent staff members",
     "milestones": [{
-      "summary": "Brings new candidates into the pipeline and understands how to evaluate candidates at Medium",
+      "summary": "Brings new candidates into the pipeline and understands how to evaluate candidates at Hyper Anna",
       "signals": [
         "Reviews existing network for hiring leads regularly",
         "Shadows interviews to gain familiarity with process",
@@ -1053,7 +1056,7 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Added observable evidence for every rating",
-        "Started a monthly brunch for candidates to meet Medium employees",
+        "Started a monthly brunch for candidates to meet Hyper Anna employees",
         "Tested a new service for quality and diversity of candidates",
       ],
     }, {
@@ -1077,7 +1080,7 @@ export const tracks: Tracks = {
       ],
       "examples": [
         "Planned engineering summit on interview process and training",
-        "Organized and lead Medium's presence at a recruitment fair",
+        "Organized and lead Hyper Anna's presence at a recruitment fair",
         "Started CODE2040 internship program",
       ],
     }, {
@@ -1095,72 +1098,73 @@ export const tracks: Tracks = {
     }],
   },
 
-  "COMMUNITY": {
-    "displayName": "Community",
+  "COMMUNICATION": {
+    "displayName": "Communication",
     "category": "D",
-    "description": "Builds community internally, gives of themself to the team, and champions and extols company values",
+    "description": "Shares the right amount of information with the right people, at the right time, and listens effectively",
     "milestones": [{
-      "summary": "Is available and present on current teams, and works to contribute positively to company culture",
+      "summary": "Communicates effectively to close stakeholders when called upon, and incorporates constructive feedback",
       "signals": [
-        "Participates in team activities and offsites",
-        "Treats colleagues and clients with respect",
-        "Joins groups or committees outside regular duties",
+        "Communicates project status clearly and effectively",
+        "Collaborates with others with empathy",
+        "Asks for help at the appropriate juncture",
       ],
       "examples": [
-        "Joined and actively participated in the web client guild",
-        "Brought a small gift back from vacation for the team",
-        "Wrote entertaining and informative Prod Ops writeups on Hatch",
+        "Updated The Watch before running a backfill",
+        "Updated project status changes in Asana promptly",
+        "Gave thoughtful check-in and check-out comments",
       ],
     }, {
-      "summary": "Steps up, builds connectedness, and takes concrete actions to promote an inclusive culture",
+      "summary": "Communicates with the wider team appropriately, focusing on timeliness and good quality conversations",
       "signals": [
-        "Makes space for others to participate",
-        "Collaborates with other engineers outside direct responsibilities",
-        "Finds ways to ramp up and engage new hires quickly",
+        "Practises active listening and suspension of attention",
+        "Ensures stakeholders are aware of current blockers",
+        "Chooses the appropriate tools for accurate and timely communication",
       ],
       "examples": [
-        "Created onboarding bingo",
-        "Brought shy and introverted people into a dominant conversation",
-        "Volunteered as secretary for a team",
+        "Received and integrated critical feedback positively",
+        "Created cross-team Slack channel for payments work",
+        "Spoke to domain experts before writing spec",
       ],
     }, {
-      "summary": "Contributes to improving team relatedness, and helps build a culture of lending support",
+      "summary": "Proactively shares information, actively solicits feedback, and facilitates communication for multiple stakeholders",
       "signals": [
-        "Takes on additional Watch shifts at short notice",
-        "Pitches in to help other teams hit deadlines, without missing own deadlines",
-        "Uses position to raise difficult issues on someone's behalf",
+        "Resolves communication difficulties between others",
+        "Anticipates and shares schedule deviations in plenty of time",
+        "Manages project stakeholder expectations effectively",
       ],
       "examples": [
-        "Lead Watch cycles with little support while still contributing to projects",
-        "Started and drove the LGBTQIA ERG",
-        "Stayed positive and improved team morale during period after layoffs",
+        "Directed team response effectively during outages",
+        "Gave a substantial Eng All Hands presentation on React",
+        "Gave notice of upcoming related work in Eng Briefing",
       ],
     }, {
-      "summary": "Exemplifies selflessness for the team without compromising responsibilities, and lifts everyone up",
+      "summary": "Communicates complex ideas skillfully and with nuance, and establishes alignment within the wider organization",
       "signals": [
-        "Goes above and beyond on the Watch, serving the team without complaint",
-        "Implements concrete programs to signficantly improve team inclusivity",
-        "Takes on large amounts of tedious grunt work for the team without being asked",
+        "Communicates project risk and tradeoffs skillfully and with nuance",
+        "Contextualizes and clarifies ambiguous direction and strategy for others",
+        "Negotiates resourcing compromises with other teams",
       ],
       "examples": [
-        "Devoted large amount of time to helping outside direct responsibilities",
-        "Refactored hundreds of legacy Shepherd nodes",
-        "Acted as sole maintainer of Boxen for years",
+        "Lead off-site workshop on interviewing",
+        "Wrote Hyper Anna's growth framework and rationale",
+        "Aligned the entire organization around claps",
       ],
     }, {
-      "summary": "Lives the company values, guards positive culture, and defines policies that support relatedness between teams",
+      "summary": "Influences outcomes at the highest level, moves beyond mere broadcasting, and sets best practices for others",
       "signals": [
-        "Brings separate teams together to build relatedness",
-        "Holds individuals, teams, and leadership accountable to Medium's values",
-        "Sets the tone, policy, and goals around maintaining an inclusive company",
+        "Defines processes for clear communication for the entire team",
+        "Shares the right amount of information with the right people, at the right time",
+        "Develops and delivers plans to execs, the board, and outside investors",
       ],
       "examples": [
-        "Organized wine and olive tasting offsite to Napa for the whole engineering org",
-        "Devised, delivered and acted on findings from an engineer happiness survey",
-        "Challenged and corrected exclusionary behaviour or policies",
+        "Organized half year check-in company offsite",
+        "Created the communication plan for a large organizational change",
+        "Presented to the board about key company metrics and projects",
       ],
     }],
-  },
+  }
+
 }
 
 export const trackIds: TrackId[] = Object.keys(tracks)
@@ -1193,14 +1197,17 @@ export const categoryColorScale = d3.scaleOrdinal()
   .range(['#00abc2', '#428af6', '#e1439f', '#e54552'])
 
 export const titles = [
-  {label: 'Engineer I', minPoints: 0, maxPoints: 16},
-  {label: 'Engineer II', minPoints: 17, maxPoints: 35},
-  {label: 'Senior Engineer', minPoints: 36, maxPoints: 57},
-  {label: 'Group Lead', minPoints: 36, maxPoints: 57},
-  {label: 'Staff Engineer', minPoints: 58, maxPoints: 89},
-  {label: 'Senior Group Lead', minPoints: 58, maxPoints: 89},
-  {label: 'Principal Engineer', minPoints: 90},
-  {label: 'Director of Engineering', minPoints: 90}
+  {label: 'Shouldn\'t be working here', minPoints: 0, maxPoints: 9},
+  {label: 'Engineer 1 (Intern)', minPoints: 10, maxPoints: 40},
+  {label: 'Engineer 2 (Grad)', minPoints: 20, maxPoints: 60},
+  {label: 'Engineer 3 (Junior)', minPoints: 40, maxPoints: 80},
+  {label: 'Engineer 4 (Mid)', minPoints: 60, maxPoints: 100},
+  {label: 'Senior Engineer 5 (Senior)', minPoints: 100, maxPoints: 140},
+  {label: 'Senior Engineer 6 (Tech Lead)', minPoints: 120, maxPoints: 160},
+  {label: 'Senior Engineer 7 (Architect)', minPoints: 140, maxPoints: 180},
+  {label: 'Principal Engineer 8', minPoints: 180, maxPoints: 220},
+  {label: 'Principal Engineer 9', minPoints: 200, maxPoints: 240},
+  {label: 'Principal Engineer 10', minPoints: 220}
 ]
 
 export const eligibleTitles = (milestoneMap: MilestoneMap): string[] => {
